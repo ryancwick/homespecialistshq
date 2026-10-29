@@ -147,6 +147,7 @@ const CONFIG = {
   // "redirect" = pre-lander: quiz here, then send the person to Monarch's form with their answers prefilled.
   // "post" = this page is the form and posts leads straight to Monarch (needs a posting spec).
   // "zipgate" = one zip box, then straight to Monarch's quiz with the zip prefilled. Lightest step.
+  // "ownergate" = one question, "Do you own your home?", then straight to Monarch's quiz. Use if their form ignores the zip prefill.
   MODE: "zipgate",
   // Your Everflow tracking link for the offer (Offer Tracking Links button). Empty = TEST MODE.
   OFFER_URL: "https://www.mqmbb8trk.com/KHNZB1/2BR65RM/", // Roofing Costs Guide - CPL (offer 762)
@@ -214,6 +215,18 @@ const tracking = {
 function esc(s){return String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]))}
 
 function render(){
+  if (CONFIG.MODE === "ownergate") {
+    prog.style.width = "0%";
+    quiz.innerHTML = `<div class="stepcount"><span>Step 1 of 1</span><span>About 1 minute</span></div><div class="q" id="qtext">Do you own the home?</div>
+      <div class="opts">
+        <button class="opt" id="own-yes"><span class="k">A</span>Yes, I own it</button>
+        <button class="opt" id="own-no"><span class="k">B</span>No, I rent</button>
+      </div>
+      <div class="secure">Next you'll answer a few quick questions about your roof on our partner's form.</div>`;
+    document.getElementById("own-yes").onclick = () => { answers.homeowner = "Yes, I own it"; handOff({}); };
+    document.getElementById("own-no").onclick = () => showDQ("This service is for homeowners only, since the owner has to approve roof work. Thanks for checking.");
+    return;
+  }
   const s = STEPS[i];
   const gate = CONFIG.MODE === "zipgate";
   prog.style.width = gate ? "0%" : Math.round((i / STEPS.length) * 100) + "%";
