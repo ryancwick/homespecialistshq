@@ -112,9 +112,9 @@ footer a{color:inherit}
   <div class="hero-copy">
     <div class="eyebrow" id="geo-line">2026 roofing cost guide</div>
     <h1>How much does a new roof cost in your area?</h1>
-    <p class="lede">Answer 6 quick questions to get matched with a local roofer and compare prices before you commit.</p>
+    <p class="lede" id="lede">Enter your zip code to see what local roofers are charging and compare prices before you commit.</p>
     <ul class="checks">
-      <li>Takes about 30 seconds</li>
+      <li>Takes about 1 minute</li>
       <li>No obligation, compare before you decide</li>
       <li>Repairs, full replacements, and storm damage</li>
     </ul>
@@ -146,7 +146,8 @@ footer a{color:inherit}
 const CONFIG = {
   // "redirect" = pre-lander: quiz here, then send the person to Monarch's form with their answers prefilled.
   // "post" = this page is the form and posts leads straight to Monarch (needs a posting spec).
-  MODE: "redirect",
+  // "zipgate" = one zip box, then straight to Monarch's quiz with the zip prefilled. Lightest step.
+  MODE: "zipgate",
   // Your Everflow tracking link for the offer (Offer Tracking Links button). Empty = TEST MODE.
   OFFER_URL: "https://www.mqmbb8trk.com/KHNZB1/2BR65RM/", // Roofing Costs Guide - CPL (offer 762)
   // Prefill: our field name -> the URL parameter Monarch's form expects (from the offer's Prepop Instructions).
@@ -214,13 +215,16 @@ function esc(s){return String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;","
 
 function render(){
   const s = STEPS[i];
-  prog.style.width = Math.round((i / STEPS.length) * 100) + "%";
-  let h = `<div class="stepcount"><span>Question ${i+1} of ${STEPS.length}</span><span>${i===STEPS.length-1?"Last step":""}</span></div><div class="q" id="qtext">${esc(s.q)}</div>`;
+  const gate = CONFIG.MODE === "zipgate";
+  prog.style.width = gate ? "0%" : Math.round((i / STEPS.length) * 100) + "%";
+  let h = gate
+    ? `<div class="stepcount"><span>Step 1 of 1</span><span>About 1 minute</span></div><div class="q" id="qtext">Where is the home?</div>`
+    : `<div class="stepcount"><span>Question ${i+1} of ${STEPS.length}</span><span>${i===STEPS.length-1?"Last step":""}</span></div><div class="q" id="qtext">${esc(s.q)}</div>`;
   if (s.type === "zip") {
     h += `<label class="f" for="zip">Zip code</label>
       <input class="t" id="zip" inputmode="numeric" autocomplete="postal-code" maxlength="5" value="${esc(answers.zip||"")}" placeholder="e.g. 85004">
       <div class="err" id="err"></div>
-      <button class="btn" id="next">Continue</button>`;
+      <button class="btn" id="next">${gate ? "See Prices in My Area" : "Continue"}</button>${gate ? `<div class="secure">Next you'll answer a few quick questions about your roof on our partner's form.</div>` : ""}`;
   } else if (s.type === "contact") {
     h += `<form id="lead" novalidate><div class="fields">
       <div class="row2">
@@ -257,7 +261,9 @@ function render(){
         return showDQ("Sorry, we don't have a roofer in your area yet.");
       if (CONFIG.ALLOWED_ZIP_PREFIXES.length && !CONFIG.ALLOWED_ZIP_PREFIXES.some(p => v.startsWith(p)))
         return showDQ("Sorry, we don't have a roofer in your area yet.");
-      answers.zip = v; i++; render();
+      answers.zip = v;
+      if (CONFIG.MODE === "zipgate") return handOff({ zip: v });
+      i++; render();
     };
     document.getElementById("next").onclick = go;
     z.addEventListener("keydown", e => { if (e.key === "Enter") go(); });
