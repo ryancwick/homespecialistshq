@@ -1,0 +1,340 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Roofing Cost Guide | Home Specialists HQ</title>
+<!-- PASTE META PIXEL BASE CODE HERE -->
+</head>
+<body>
+<style>
+/* Layout: mobile-first single column; hero copy + quiz card side by side on desktop, quiz card is the whole job */
+:root{
+  --bg:#f5f7f8; --surface:#ffffff; --ink:#18232b; --muted:#56656f; --line:#d9e0e4;
+  --slate:#22313b; --accent:#e8a317; --accent-ink:#1b1400; --ok:#1f7a4d; --warn-bg:#fff4c2; --warn-ink:#5a4300; --err:#b3261e;
+  --display:"Archivo", "Arial Narrow", Arial, sans-serif;
+  --body:"Public Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#11181d; --surface:#18222a; --ink:#e7ecef; --muted:#9aa9b3; --line:#2c3a44;
+  --slate:#0b1115; --accent:#f0b43a; --accent-ink:#1b1400; --ok:#4fbf86; --warn-bg:#3a3110; --warn-ink:#ffe08a; --err:#ff8a80; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#11181d; --surface:#18222a; --ink:#e7ecef; --muted:#9aa9b3; --line:#2c3a44;
+  --slate:#0b1115; --accent:#f0b43a; --accent-ink:#1b1400; --ok:#4fbf86; --warn-bg:#3a3110; --warn-ink:#ffe08a; --err:#ff8a80; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.5;margin:0}
+.wrap{max-width:1080px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+header.top{background:var(--slate);color:#fff}
+header.top .wrap{display:flex;align-items:center;justify-content:space-between;padding-block:12px;gap:12px}
+.brand{font-family:var(--display);font-weight:800;letter-spacing:.02em;font-size:1.15rem}
+.brand small{display:block;font-family:var(--body);font-weight:400;font-size:.72rem;opacity:.75;letter-spacing:.04em}
+.ph{background:var(--warn-bg);color:var(--warn-ink);border:1px dashed currentColor;border-radius:3px;padding:0 4px;font-size:.85em}
+.hero{background:var(--slate);color:#fff;padding-block:28px 64px}
+.hero .wrap{display:grid;grid-template-columns:1fr;gap:28px;align-items:start}
+@media (min-width:880px){.hero .wrap{grid-template-columns:1fr 460px}.hero{padding-block:48px 72px}}
+.eyebrow{text-transform:uppercase;letter-spacing:.12em;font-size:.75rem;color:var(--accent);font-weight:700}
+h1{font-family:var(--display);font-weight:800;font-size:clamp(1.9rem,5.5vw,3rem);line-height:1.05;margin:.3em 0 .4em;text-wrap:balance}
+.lede{font-size:1.05rem;opacity:.88;max-width:34em;margin:0 0 18px}
+.checks{list-style:none;padding:0;margin:0;display:grid;gap:8px}
+.checks li{display:flex;gap:10px;align-items:flex-start}
+.checks li::before{content:"";flex:none;width:18px;height:18px;margin-top:3px;border-radius:2px;background:var(--accent);
+  -webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M7.6 14.2 3.4 10l1.4-1.4 2.8 2.8 7.6-7.6 1.4 1.4z'/%3E%3C/svg%3E") center/contain no-repeat;
+          mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M7.6 14.2 3.4 10l1.4-1.4 2.8 2.8 7.6-7.6 1.4 1.4z'/%3E%3C/svg%3E") center/contain no-repeat}
+.hero-copy{min-width:0}
+@media (max-width:879px){.hero-copy .checks{display:none}}
+/* quiz card */
+.card{background:var(--surface);color:var(--ink);border-radius:10px;box-shadow:0 18px 40px rgba(0,0,0,.28);overflow:hidden;min-width:0}
+.prog{height:6px;background:var(--line)}
+.prog span{display:block;height:100%;width:0;background:var(--accent);transition:width .3s ease}
+.card-in{padding:22px 20px 20px}
+.stepcount{font-size:.78rem;color:var(--muted);letter-spacing:.06em;text-transform:uppercase;display:flex;justify-content:space-between}
+.q{font-family:var(--display);font-weight:700;font-size:1.4rem;line-height:1.2;margin:6px 0 16px;text-wrap:balance}
+.opts{display:grid;gap:10px}
+.opt{display:flex;align-items:center;gap:12px;width:100%;text-align:left;font:inherit;color:inherit;background:var(--bg);border:2px solid var(--line);border-radius:8px;padding:14px 14px;cursor:pointer;min-height:54px}
+.opt:hover{border-color:var(--accent)}
+.opt:focus-visible,.btn:focus-visible,input:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.opt .k{flex:none;width:26px;height:26px;border-radius:50%;border:2px solid var(--line);display:grid;place-items:center;font-size:.75rem;font-weight:700;color:var(--muted)}
+.opt[aria-pressed="true"]{border-color:var(--accent)}
+.opt[aria-pressed="true"] .k{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+label.f{display:block;font-size:.85rem;font-weight:600;margin-bottom:4px}
+input.t{width:100%;font:inherit;font-size:1.05rem;padding:12px 12px;border:2px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink)}
+input.t[aria-invalid="true"]{border-color:var(--err)}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.fields{display:grid;gap:12px}
+.err{color:var(--err);font-size:.85rem;min-height:1.2em;margin-top:6px}
+.btn{display:block;width:100%;font:inherit;font-family:var(--display);font-weight:800;font-size:1.1rem;letter-spacing:.02em;border:0;border-radius:8px;padding:15px;background:var(--accent);color:var(--accent-ink);cursor:pointer;margin-top:14px}
+.btn[disabled]{opacity:.55;cursor:wait}
+.back{background:none;border:0;color:var(--muted);font:inherit;font-size:.9rem;cursor:pointer;padding:8px 0 0;text-decoration:underline}
+.consent{display:flex;gap:10px;align-items:flex-start;margin-top:14px;font-size:.74rem;line-height:1.45;color:var(--muted)}
+.consent input{margin-top:3px;flex:none;width:18px;height:18px}
+.consent .ph{display:block;font-size:1em;padding:6px 8px}
+.secure{font-size:.75rem;color:var(--muted);text-align:center;margin-top:10px}
+.done{text-align:center;padding:12px 0 6px}
+.done h2{font-family:var(--display);font-size:1.5rem;margin:.2em 0}
+pre.payload{text-align:left;background:var(--bg);border:1px solid var(--line);border-radius:6px;padding:10px;font-size:.72rem;overflow-x:auto;max-height:260px}
+/* below the fold */
+.how{padding-block:40px}
+.how h2{font-family:var(--display);font-size:1.5rem;margin:0 0 16px}
+.steps3{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;counter-reset:s}
+.steps3 div{counter-increment:s;border-top:3px solid var(--accent);padding-top:12px;min-width:0}
+.steps3 div::before{content:counter(s);font-family:var(--display);font-weight:800;font-size:1.6rem;color:var(--accent);display:block}
+.steps3 h3{margin:.1em 0 .2em;font-size:1.05rem}
+.steps3 p{margin:0;color:var(--muted)}
+footer{border-top:1px solid var(--line);padding-block:24px 36px;font-size:.78rem;color:var(--muted)}
+footer p{max-width:70em;margin:0 0 10px}
+footer a{color:inherit}
+@media (prefers-reduced-motion:reduce){.prog span{transition:none}}
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;800&family=Public+Sans:wght@400;600;700&display=swap">
+
+<header class="top"><div class="wrap">
+  <div class="brand">HOME SPECIALISTS HQ <small>Roofing estimates</small></div>
+</div></header>
+
+<section class="hero"><div class="wrap">
+  <div class="hero-copy">
+    <div class="eyebrow" id="geo-line">2026 roofing cost guide</div>
+    <h1>How much does a new roof cost in your area?</h1>
+    <p class="lede">Answer 6 quick questions to get matched with a local roofer and compare prices before you commit.</p>
+    <ul class="checks">
+      <li>Takes about 30 seconds</li>
+      <li>No obligation, compare before you decide</li>
+      <li>Repairs, full replacements, and storm damage</li>
+    </ul>
+  </div>
+
+  <div class="card" role="region" aria-label="Roof estimate questions">
+    <div class="prog"><span id="prog"></span></div>
+    <div class="card-in" id="quiz"></div>
+  </div>
+</div></section>
+
+<section class="how"><div class="wrap">
+  <h2>How it works</h2>
+  <div class="steps3">
+    <div><h3>Answer a few questions</h3><p>Tell us about your home and your roof. No account needed.</p></div>
+    <div><h3>Get matched</h3><p>Your request goes to a roofing company that serves your zip code.</p></div>
+    <div><h3>Get your estimate</h3><p>They contact you to schedule an inspection and give you a price.</p></div>
+  </div>
+</div></section>
+
+<footer><div class="wrap">
+  <p><strong>This is not a government program, and roofing work is not free.</strong> <span class="ph">PLACEHOLDER: Monarch requires a disclaimer like this in the footer. Get Aleta to approve the exact wording.</span> Home Specialists HQ is a service that connects homeowners with independent roofing contractors. We are not a roofing contractor and do not perform any work. Estimates and availability vary by contractor and location.</p>
+  <p><a href="/privacy.html">Privacy Policy</a> · <a href="/terms.html">Terms of Use</a></p>
+  <p>&copy; <span id="yr"></span> Home Specialists HQ</p>
+</div></footer>
+
+<script>
+/* ===================== CONFIG: fill these in from Monarch ===================== */
+const CONFIG = {
+  // "redirect" = pre-lander: quiz here, then send the person to Monarch's form with their answers prefilled.
+  // "post" = this page is the form and posts leads straight to Monarch (needs a posting spec).
+  MODE: "redirect",
+  // Your Everflow tracking link for the offer (Offer Tracking Links button). Empty = TEST MODE.
+  OFFER_URL: "https://www.mqmbb8trk.com/KHNZB1/2BR65RM/", // Roofing Costs Guide - CPL (offer 762)
+  // Prefill: our field name -> the URL parameter Monarch's form expects (from the offer's Prepop Instructions).
+  PREPOP_MAP: { zip:"zip", first_name:"first_name", last_name:"last_name", email:"email", phone:"phone", address:"street_address" },
+  // Monarch's posting URL (post mode only). Leave empty to run in TEST MODE (shows the payload instead of sending).
+  POST_URL: "",
+  // Extra static fields Monarch requires on every post (campaign id, api key, offer id, etc).
+  // Do NOT put a secret API key here if this page is public. Ask Monarch whether the key is safe client side.
+  STATIC_FIELDS: { /* campaign_id: "", offer_id: "", affiliate_id: "" */ },
+  // Map our field names to Monarch's field names. Left side = ours, right side = theirs.
+  FIELD_MAP: {
+    first_name:"first_name", last_name:"last_name", phone:"phone", email:"email",
+    address:"address", zip:"zip", homeowner:"homeowner", project:"project_type",
+    material:"roof_material", roof_age:"roof_age", timeline:"timeline",
+    tcpa_consent:"tcpa_consent", tcpa_text:"tcpa_text",
+    trustedform_cert_url:"xxTrustedFormCertUrl", jornaya_leadid:"universal_leadid",
+    sub_id:"sub_id", utm_source:"utm_source", utm_campaign:"utm_campaign", utm_content:"utm_content", fbclid:"fbclid",
+    page_url:"page_url", ip_address:"ip_address", user_agent:"user_agent", submitted_at:"submitted_at"
+  },
+  // Allowed zip prefixes (first 3 digits) or full zips. Empty = accept all.
+  ALLOWED_ZIP_PREFIXES: [],
+  // Zip prefixes (first 3 digits) that are turned away. Offer 762 excludes AL, MS, LA, WV, KY.
+  BLOCKED_ZIP_PREFIXES: ["350","351","352","354","355","356","357","358","359","360","361","362","363","364","365","366","367","368","369", // AL
+    "386","387","388","389","390","391","392","393","394","395","396","397", // MS
+    "700","701","703","704","705","706","707","708","710","711","712","713","714", // LA
+    "247","248","249","250","251","252","253","254","255","256","257","258","259","260","261","262","263","264","265","266","267","268", // WV
+    "400","401","402","403","404","405","406","407","408","409","410","411","412","413","414","415","416","417","418","420","421","422","423","424","425","426","427"], // KY
+  // Send as JSON or as a normal form post. Monarch's spec decides this.
+  SEND_AS: "json", // "json" or "form"
+  // Where to send people after a good submit. Empty = show thank-you on page.
+  THANK_YOU_URL: ""
+};
+/* ============================================================================ */
+
+const STEPS = [
+  { id:"zip", type:"zip", q:"What's the zip code of the home?" },
+  { id:"homeowner", q:"Do you own the home?", opts:["Yes, I own it","No, I rent"], dq:"No, I rent" },
+  { id:"project", q:"What does your roof need?", opts:["Full replacement","Repair","Storm or hail damage","Not sure, need an inspection"] },
+  { id:"material", q:"What is your roof made of?", opts:["Asphalt shingle","Metal","Tile","Flat roof","Not sure"] },
+  { id:"roof_age", q:"About how old is your roof?", opts:["Less than 10 years","10 to 20 years","20+ years","Not sure"] },
+  { id:"timeline", q:"When do you want the work done?", opts:["As soon as possible","Within 1 to 3 months","Just researching prices"] },
+  { id:"contact", type:"contact", q:"Where should the roofer send your estimate?" }
+];
+
+/* PLACEHOLDER consent text. Replace word for word with Monarch's TCPA language. */
+const CONSENT_TEXT = 'PLACEHOLDER CONSENT TEXT. Replace with Monarch\'s exact TCPA wording. It normally names who can contact you (by company name or a linked list), says calls/texts may use automated technology or prerecorded messages, says consent is not a condition of purchase, and links the Privacy Policy and Terms.';
+
+const answers = {};
+let i = 0;
+const quiz = document.getElementById("quiz");
+const prog = document.getElementById("prog");
+document.getElementById("yr").textContent = new Date().getFullYear();
+
+// capture tracking params from the Meta ad URL
+const qs = new URLSearchParams(location.search);
+const tracking = {
+  sub_id: qs.get("sub_id") || qs.get("subid") || "",
+  utm_source: qs.get("utm_source") || "",
+  utm_campaign: qs.get("utm_campaign") || "",
+  utm_content: qs.get("utm_content") || "",
+  fbclid: qs.get("fbclid") || ""
+};
+
+function esc(s){return String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]))}
+
+function render(){
+  const s = STEPS[i];
+  prog.style.width = Math.round((i / STEPS.length) * 100) + "%";
+  let h = `<div class="stepcount"><span>Question ${i+1} of ${STEPS.length}</span><span>${i===STEPS.length-1?"Last step":""}</span></div><div class="q" id="qtext">${esc(s.q)}</div>`;
+  if (s.type === "zip") {
+    h += `<label class="f" for="zip">Zip code</label>
+      <input class="t" id="zip" inputmode="numeric" autocomplete="postal-code" maxlength="5" value="${esc(answers.zip||"")}" placeholder="e.g. 85004">
+      <div class="err" id="err"></div>
+      <button class="btn" id="next">Continue</button>`;
+  } else if (s.type === "contact") {
+    h += `<form id="lead" novalidate><div class="fields">
+      <div class="row2">
+        <div><label class="f" for="first_name">First name</label><input class="t" id="first_name" autocomplete="given-name"></div>
+        <div><label class="f" for="last_name">Last name</label><input class="t" id="last_name" autocomplete="family-name"></div>
+      </div>
+      <div><label class="f" for="address">Street address</label><input class="t" id="address" autocomplete="street-address"></div>
+      <div><label class="f" for="phone">Mobile phone</label><input class="t" id="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="(555) 555-5555"></div>
+      <div><label class="f" for="email">Email</label><input class="t" id="email" type="email" autocomplete="email"></div>
+    </div>
+    ${CONFIG.MODE === "post" ? `<label class="consent"><input type="checkbox" id="tcpa"><span class="ph" id="tcpa_text">${esc(CONSENT_TEXT)}</span></label>` : ""}
+    <div class="err" id="err"></div>
+    <button class="btn" id="submit" type="submit">${CONFIG.MODE === "post" ? "Get My Estimate" : "Continue to Final Step"}</button>
+    <!-- TrustedForm / Jornaya hidden inputs: their scripts fill these if Monarch requires them -->
+    <input type="hidden" id="xxTrustedFormCertUrl" name="xxTrustedFormCertUrl">
+    <input type="hidden" id="leadid_token" name="universal_leadid">
+    </form>
+    <div class="secure">${CONFIG.MODE === "post" ? "Your info is only shared with the roofer matched to your request." : "Next you'll confirm your details on our partner's request form."}</div>`;
+  } else {
+    h += `<div class="opts">` + s.opts.map((o,n)=>`<button class="opt" data-v="${esc(o)}" aria-pressed="${answers[s.id]===o}"><span class="k">${String.fromCharCode(65+n)}</span>${esc(o)}</button>`).join("") + `</div>`;
+  }
+  if (i > 0) h += `<button class="back" id="back">Back</button>`;
+  quiz.innerHTML = h;
+
+  const back = document.getElementById("back");
+  if (back) back.onclick = () => { i--; render(); };
+
+  if (s.type === "zip") {
+    const z = document.getElementById("zip");
+    const go = () => {
+      const v = z.value.trim();
+      if (!/^\d{5}$/.test(v)) return fail(z, "Enter a 5 digit zip code.");
+      if (CONFIG.BLOCKED_ZIP_PREFIXES.some(p => v.startsWith(p)))
+        return showDQ("Sorry, we don't have a roofer in your area yet.");
+      if (CONFIG.ALLOWED_ZIP_PREFIXES.length && !CONFIG.ALLOWED_ZIP_PREFIXES.some(p => v.startsWith(p)))
+        return showDQ("Sorry, we don't have a roofer in your area yet.");
+      answers.zip = v; i++; render();
+    };
+    document.getElementById("next").onclick = go;
+    z.addEventListener("keydown", e => { if (e.key === "Enter") go(); });
+  } else if (s.type === "contact") {
+    document.getElementById("lead").addEventListener("submit", submitLead);
+  } else {
+    quiz.querySelectorAll(".opt").forEach(b => b.onclick = () => {
+      const v = b.dataset.v;
+      if (s.dq && v === s.dq) return showDQ("This service is for homeowners only, since the owner has to approve roof work. Thanks for checking.");
+      answers[s.id] = v; i++; render();
+    });
+  }
+}
+
+function fail(el, msg){ el.setAttribute("aria-invalid","true"); document.getElementById("err").textContent = msg; el.focus(); return false; }
+
+function showDQ(msg){
+  prog.style.width = "100%";
+  quiz.innerHTML = `<div class="done"><h2>Thanks for your interest</h2><p>${esc(msg)}</p></div>`;
+}
+
+function handOff(f){
+  let url;
+  try { url = new URL(CONFIG.OFFER_URL || "https://TRACKING-LINK-GOES-HERE.example/"); } catch (_) { document.getElementById("err").textContent = "Offer link is not a valid URL."; return; }
+  for (const [k,val] of Object.entries(f)) if (val) url.searchParams.set(CONFIG.PREPOP_MAP[k] || k, val);
+  // pass your own tracking through (map these to Everflow sub params once you know which ones you use)
+  // Everflow sub IDs, so Monarch's reports show which campaign and ad each lead came from
+  if (tracking.utm_campaign) url.searchParams.set("sub1", tracking.utm_campaign);
+  if (tracking.utm_content) url.searchParams.set("sub2", tracking.utm_content);
+  if (tracking.sub_id) url.searchParams.set("sub3", tracking.sub_id);
+  if (tracking.fbclid) url.searchParams.set("sub5", tracking.fbclid);
+  if (typeof fbq === "function") fbq("track", "Lead"); // counts quiz completions, not Monarch-verified leads
+  if (!CONFIG.OFFER_URL) {
+    prog.style.width = "100%";
+    quiz.innerHTML = `<div class="done"><h2>Test mode</h2><p>No tracking link set yet. Live, the person would be sent here with their answers prefilled:</p><pre class="payload">${esc(url.toString().replace(/&/g,"\n&"))}</pre><button class="back" id="restart">Start over</button></div>`;
+    document.getElementById("restart").onclick = () => { i = 0; render(); };
+    return;
+  }
+  location.href = url.toString();
+}
+
+async function submitLead(e){
+  e.preventDefault();
+  const v = id => document.getElementById(id).value.trim();
+  ["first_name","last_name","address","phone","email"].forEach(id => document.getElementById(id).removeAttribute("aria-invalid"));
+  const digits = v("phone").replace(/\D/g,"").replace(/^1(?=\d{10}$)/,"");
+  if (!v("first_name")) return fail(document.getElementById("first_name"), "Enter your first name.");
+  if (!v("last_name")) return fail(document.getElementById("last_name"), "Enter your last name.");
+  if (v("address").length < 5) return fail(document.getElementById("address"), "Enter the street address of the home.");
+  if (digits.length !== 10) return fail(document.getElementById("phone"), "Enter a 10 digit phone number.");
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v("email"))) return fail(document.getElementById("email"), "Enter a valid email address.");
+  if (CONFIG.MODE === "redirect") return handOff({ zip:answers.zip, first_name:v("first_name"), last_name:v("last_name"), email:v("email"), phone:digits, address:v("address") });
+  if (!document.getElementById("tcpa").checked) { document.getElementById("err").textContent = "Check the box to agree to be contacted about your estimate."; return; }
+
+  const ours = {
+    ...answers,
+    first_name:v("first_name"), last_name:v("last_name"), address:v("address"), phone:digits, email:v("email"),
+    tcpa_consent:"yes", tcpa_text:CONSENT_TEXT,
+    trustedform_cert_url: document.getElementById("xxTrustedFormCertUrl").value,
+    jornaya_leadid: document.getElementById("leadid_token").value,
+    ...tracking,
+    page_url: location.href, ip_address:"", user_agent: navigator.userAgent, submitted_at: new Date().toISOString()
+  };
+  const payload = { ...CONFIG.STATIC_FIELDS };
+  for (const [k,val] of Object.entries(ours)) payload[CONFIG.FIELD_MAP[k] || k] = val;
+
+  // Meta Pixel Lead event (only fires if the pixel base code is installed on the page)
+  if (typeof fbq === "function") fbq("track", "Lead");
+
+  const btn = document.getElementById("submit");
+  if (!CONFIG.POST_URL) {
+    prog.style.width = "100%";
+    quiz.innerHTML = `<div class="done"><h2>Test mode</h2><p>No posting URL set yet, so nothing was sent. This is what would go to Monarch:</p><pre class="payload">${esc(JSON.stringify(payload,null,2))}</pre><button class="back" id="restart">Start over</button></div>`;
+    document.getElementById("restart").onclick = () => { i = 0; render(); };
+    return;
+  }
+  btn.disabled = true; btn.textContent = "Sending...";
+  try {
+    const res = await fetch(CONFIG.POST_URL, CONFIG.SEND_AS === "json"
+      ? { method:"POST", headers:{ "Content-Type":"application/json" }, body: JSON.stringify(payload) }
+      : { method:"POST", body: new URLSearchParams(payload) });
+    if (!res.ok) throw new Error("HTTP " + res.status);
+    if (CONFIG.THANK_YOU_URL) { location.href = CONFIG.THANK_YOU_URL; return; }
+    prog.style.width = "100%";
+    quiz.innerHTML = `<div class="done"><h2>You're all set, ${esc(ours.first_name)}.</h2><p>A local roofer will reach out shortly to schedule your estimate. Keep your phone nearby.</p></div>`;
+  } catch (err) {
+    btn.disabled = false; btn.textContent = "Get My Estimate";
+    document.getElementById("err").textContent = "Something went wrong sending your request. Please try again.";
+  }
+}
+
+render();
+</script>
+
+</body>
+</html>
