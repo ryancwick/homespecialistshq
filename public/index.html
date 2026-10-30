@@ -45,7 +45,9 @@ header.top .wrap{display:flex;align-items:center;justify-content:space-between;p
 .brand{font-family:var(--display);font-weight:800;letter-spacing:.02em;font-size:1.15rem}
 .brand small{display:block;font-family:var(--body);font-weight:400;font-size:.72rem;opacity:.75;letter-spacing:.04em}
 .ph{background:var(--warn-bg);color:var(--warn-ink);border:1px dashed currentColor;border-radius:3px;padding:0 4px;font-size:.85em}
-.hero{background:var(--slate);color:#fff;padding-block:28px 64px}
+.hero{position:relative;isolation:isolate;background:var(--slate) url("img/roof.jpg") center 35%/cover no-repeat;color:#fff;padding-block:28px 64px}
+.hero::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(18,30,38,.82) 0%,rgba(18,30,38,.7) 45%,rgba(18,30,38,.9) 100%)}
+@media (min-width:880px){.hero::before{background:linear-gradient(90deg,rgba(18,30,38,.92) 0%,rgba(18,30,38,.78) 55%,rgba(18,30,38,.55) 100%)}}
 .hero .wrap{display:grid;grid-template-columns:1fr;gap:28px;align-items:start}
 @media (min-width:880px){.hero .wrap{grid-template-columns:1fr 460px}.hero{padding-block:48px 72px}}
 .eyebrow{text-transform:uppercase;letter-spacing:.12em;font-size:.75rem;color:var(--accent);font-weight:700}
